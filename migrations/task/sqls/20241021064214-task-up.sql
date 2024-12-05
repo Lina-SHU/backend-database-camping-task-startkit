@@ -158,7 +158,7 @@ INSERT INTO "COURSE_BOOKING" (user_id, course_id, booking_at, status) VALUES
         (SELECT id FROM "COURSE" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'lee2000@hexschooltest.io')),
         '2024-11-24 17:10:25',
         '即將授課'
-    )
+    );
 -- 5-4. 查詢：取得王小明所有的預約紀錄，包含取消預約的紀錄
 SELECT * FROM "COURSE_BOOKING" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'wXlTq@hexschooltest.io');
 -- 5-5. 修改：`王小明` 現在已經加入直播室了，請在`COURSE_BOOKING`更新該筆預約資料（請注意，不要更新到已經取消的紀錄）：
@@ -219,7 +219,7 @@ SELECT "CREDIT_PACKAGE".name AS 組合包方案名稱, COUNT(*) AS 銷售數量
 FROM "CREDIT_PURCHASE"
 INNER JOIN "CREDIT_PACKAGE" ON "CREDIT_PACKAGE".id = "CREDIT_PURCHASE".credit_package_id
 WHERE "CREDIT_PURCHASE".created_at >= '2024-11-01 00:00:00' AND "CREDIT_PURCHASE".created_at <= '2024-11-30 23:59:59'
-GROUP BY "CREDIT_PURCHASE".credit_package_id
+GROUP BY "CREDIT_PURCHASE".credit_package_id;
 
 -- 6-4. 查詢：計算 11 月份總營收（使用 purchase_at 欄位統計）
 -- 顯示須包含以下欄位： 總營收
